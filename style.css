@@ -1,107 +1,132 @@
 :root {
-  --accent: #ec407a;
-  --dark: #111;
-  --light: #fff;
+  --pink: #ec407a;
+  --pink-light: #f48fb1;
+  --dark: #131112;
+  --white: #ffffff;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--dark);
-  color: var(--light);
+/* Layout */
+html, body {
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--pink);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #1a1a1a;
-  position: sticky;
-  top: 0;
+  background-color: var(--dark);
+  padding: 1rem 0;
+  text-align: center;
 }
 
-.logo {
-  color: var(--accent);
-  font-size: 1.6rem;
-  letter-spacing: 2px;
+header .logo {
+  font-size: 3rem;
+  margin: 0;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
+nav a {
+  color: var(--white);
+  margin: 0 15px;
   text-decoration: none;
-  color: var(--light);
-  transition: color 0.3s;
+  font-weight: 600;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
+nav a:hover, nav a.active {
+  color: var(--pink-light);
 }
 
 main {
-  padding: 2rem;
+  flex: 1;
   text-align: center;
+  padding: 20px;
 }
 
-.content {
+/* Sections */
+section {
   display: none;
-  animation: fadeIn 0.5s ease;
+  padding: 40px 20px;
 }
 
-.content.active {
+section.active {
   display: block;
 }
 
-button {
-  background-color: var(--accent);
-  color: var(--light);
-  border: none;
-  padding: 0.7rem 1.2rem;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 1rem;
-  font-weight: bold;
+/* Banner */
+.banner {
+  background-color: var(--dark);
+  color: var(--pink-light);
+  padding: 50px 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
 }
 
-button:hover {
+.banner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.banner p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.banner .interactive {
+  background-color: var(--pink-light);
+  color: var(--dark);
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.3s;
+}
+
+.banner .interactive:hover {
   opacity: 0.8;
 }
 
-footer {
-  background-color: #1a1a1a;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 3rem;
-  border-top: 2px solid var(--accent);
+/* Buttons */
+.interactive {
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s;
 }
 
-.youtube-section ul {
+.interactive:hover {
+  background-color: var(--pink-light);
+}
+
+/* Footer at bottom */
+footer {
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer a {
+  color: var(--pink-light);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer ul {
   list-style: none;
   padding: 0;
 }
-
-.youtube-section li a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.contact a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+footer li {
+  margin: 5px 0;
 }
