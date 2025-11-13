@@ -1,6 +1,6 @@
 :root {
   --pink: #f76093;
-  --pink-light: #f48fb1;
+  --pink-light: #f76093;
   --dark: #131112;
   --white: #ffffff;
 }
@@ -130,4 +130,5 @@ footer ul {
 footer li {
   margin: 5px 0;
 }
+
 
