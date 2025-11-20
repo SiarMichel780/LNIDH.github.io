@@ -166,13 +166,38 @@ html,body{
   flex:0 0 auto;
 }
 
-/* links */
-.xp-games-list a, .xp-content a{
-  color:#0033cc;
-  text-decoration:underline;
-  word-break:break-all;
+/* XP-style button links */
+.xp-content a,
+.xp-games-list a {
+  display: inline-block;
+  padding: 4px 10px;
+  background: linear-gradient(to bottom, #e6f0fc, #c7ddf8);
+  border: 1px solid #7a9ecf;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 2px rgba(0,0,0,0.2);
+  color: #0b2d66;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.1s ease-in-out;
 }
-.xp-content a:hover{ color:#551a8b; }
+
+/* hover effect like XP Start button highlight */
+.xp-content a:hover,
+.xp-games-list a:hover {
+  background: linear-gradient(to bottom, #c7dcf8, #a0c0f0);
+  border-color: #5a7fbf;
+  color: #001f4d;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.25);
+}
+
+/* active click effect */
+.xp-content a:active,
+.xp-games-list a:active {
+  background: linear-gradient(to bottom, #a0c0f0, #c7ddf8);
+  box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);
+}
 
 /* info box (Important Info area) */
 .xp-info{
