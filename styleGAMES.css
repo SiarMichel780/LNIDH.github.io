@@ -1,0 +1,220 @@
+/* styleGAMES.css
+   Windows XP — Single big window style for AT Games 3.0
+   Uses uploaded image as window icon: /mnt/data/D48E808C-EA7C-4123-BFBC-DBFD20E95D11.png
+*/
+
+/* page background (XP desktop feel) */
+:root{
+  --xp-blue:#3a6ea5;
+  --xp-title:#0a246a;
+  --xp-frame-bg:#ece9d8;
+  --xp-panel:#faf9f4;
+  --xp-border:#0f3a78;
+  --text:#000;
+  --muted:#5b5b5b;
+}
+html,body{
+  height:100%;
+  margin:0;
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  background: linear-gradient(180deg,#4b7fb3 0%, #32648f 100%); /* desktop gradient */
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color:var(--text);
+}
+
+/* center the big XP window */
+.xp-shell {
+  box-sizing:border-box;
+  max-width:980px;
+  margin:38px auto;
+  padding:0;
+  position:relative;
+  /* slight 3D drop shadow like a window */
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,0.45));
+}
+
+/* main window frame */
+.xp-window {
+  background: linear-gradient(#f2efe3 0%, #ece9d8 100%);
+  border:3px solid var(--xp-border);
+  border-radius:4px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-height:480px;
+}
+
+/* title bar */
+.xp-titlebar {
+  background: linear-gradient(#0f47a1, #0b3786);
+  color:#fff;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.12);
+  user-select:none;
+}
+
+/* window icon (uses uploaded file path) */
+.xp-titlebar .icon{
+  width:28px;
+  height:28px;
+  flex:0 0 28px;
+  background-image: url("/mnt/data/D48E808C-EA7C-4123-BFBC-DBFD20E95D11.png");
+  background-size:cover;
+  background-position:center;
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:3px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+
+/* title text */
+.xp-title {
+  font-weight:bold;
+  font-size:15px;
+  line-height:1;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
+  letter-spacing:0.3px;
+}
+
+/* window controls area (fake minimize/max/close) */
+.xp-controls{
+  margin-left:auto;
+  display:flex;
+  gap:6px;
+}
+.xp-controls .btn{
+  width:18px;
+  height:18px;
+  border-radius:2px;
+  background:linear-gradient(#e6eefc,#c7dcf8);
+  border:1px solid rgba(0,0,0,0.2);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  color:#0b2d66;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+}
+
+/* content area (like the client area of the window) */
+.xp-content{
+  padding:18px 22px;
+  background: linear-gradient(#fff,#f6f3e7);
+  border-top:1px solid rgba(0,0,0,0.06);
+  flex:1 1 auto;
+}
+
+/* headings / section header style inside the window */
+.xp-content h1{
+  margin:0 0 8px 0;
+  font-size:20px;
+  color:var(--xp-title);
+  text-shadow:1px 1px 0 #fff;
+}
+.xp-content h2, .xp-content h3{
+  margin:12px 0 8px 0;
+  color:var(--xp-title);
+  font-size:14px;
+}
+
+/* layout within content */
+.xp-content img.header-snap{
+  float:right;
+  width:160px;
+  max-width:40%;
+  margin-left:14px;
+  margin-bottom:10px;
+  border:2px solid var(--xp-border);
+  padding:4px;
+  background:#fff;
+  border-radius:3px;
+}
+
+/* lists like items — XP-style lightly inset panels */
+.xp-games-list{
+  list-style:none;
+  padding:0;
+  margin:8px 0 0 0;
+  display:block;
+}
+.xp-games-list li{
+  background: var(--xp-panel);
+  border:1px solid rgba(0,0,0,0.06);
+  padding:8px 10px;
+  margin:6px 0;
+  border-left:4px solid #3a6ea5;
+  border-radius:2px;
+  font-size:13px;
+  line-height:1.35;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+/* small status tag */
+.xp-tag{
+  font-size:11px;
+  padding:4px 6px;
+  border-radius:3px;
+  background:linear-gradient(#fff,#eee);
+  border:1px solid rgba(0,0,0,0.06);
+  color:var(--muted);
+  margin-right:6px;
+  flex:0 0 auto;
+}
+
+/* links */
+.xp-games-list a, .xp-content a{
+  color:#0033cc;
+  text-decoration:underline;
+  word-break:break-all;
+}
+.xp-content a:hover{ color:#551a8b; }
+
+/* info box (Important Info area) */
+.xp-info{
+  background:linear-gradient(#fff8d6,#fff2c6);
+  border:1px solid #e0c77a;
+  padding:10px;
+  border-radius:3px;
+  margin:8px 0;
+  font-size:13px;
+}
+
+/* footer area within the window */
+.xp-footer{
+  padding:10px 14px;
+  background: linear-gradient(#f3efe0,#ece6d0);
+  border-top:1px solid rgba(0,0,0,0.06);
+  font-size:13px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* subtle beveled buttons (if used) */
+.xp-button{
+  display:inline-block;
+  padding:6px 10px;
+  border:1px solid #7b7b7b;
+  background:linear-gradient(#fdfdfd,#dcdcdc);
+  border-radius:3px;
+  font-size:13px;
+  cursor:pointer;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset;
+}
+
+/* responsive tweaks */
+@media (max-width:560px){
+  .xp-titlebar .icon{display:none}
+  .xp-content img.header-snap{display:none}
+  .xp-window{margin:10px}
+  .xp-games-list li{font-size:12px}
+}
+
+/* small print / muted */
+.muted{color:var(--muted); font-size:12px;}
