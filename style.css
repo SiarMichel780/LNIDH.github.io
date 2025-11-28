@@ -1,6 +1,7 @@
 :root {
-  --pink: #f76093;
-  --pink-light: #f76093;
+  /*--pink: #ec407a;*/
+  --pink: #323233;
+  --pink-light: #f48fb1;
   --dark: #131112;
   --white: #ffffff;
 }
@@ -131,4 +132,6 @@ footer li {
   margin: 5px 0;
 }
 
-
+#merch {
+    background-color: #323233;
+}
