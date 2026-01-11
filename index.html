@@ -4,43 +4,300 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LNIDH Studios</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Heading Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+
+  <!-- Inline CSS for Content Tab Dashboard -->
+  <style>
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .platform-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .platform-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .platform-card h3 {
+      margin: 0 0 5px 0;
+      font-size: 1.1rem;
+    }
+
+    .platform-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1 class="logo">LNIDH.com</h1>
-    <nav>
-      <!-- Set merch tab as active by default -->
-      <a href="#" class="tab active" data-target="merch">Merch</a>
-    </nav>
-  </header>
 
-  <main>
+<header>
+  <h1 class="logo">LNIDH Studios</h1>
+  <nav>
+    <a href="#" class="tab active" data-target="home">Home</a>
+    <!--<a href="#" class="tab" data-target="bts">BTS</a>-->
+    <a href="#" class="tab" data-target="merch">Merch</a>
+    <a href="#" class="tab" data-target="content">Content</a>
+    <a href="#" class="tab" data-target="crew">Cast & Crew</a>
+  </nav>
+</header>
 
-    <!-- MERCH section is also active by default -->
-    <section id="merch" class="content active">
-      <h1>Merch</h1>
-      <h3>fuck mr. nobody</h3>
-      <iframe style="border-radius:24px;border:none" src="https://embed.creator-spring.com/widget?slug=lnidh&per=3&currency=&page=1&layout=grid-sm-4&theme=dark" title="LNIDH Merch store powered by Spring" width="100%" height="960" data-reactroot=""></iframe>
-    </section>
+<main>
 
-  </main>
+<!-- HOME -->
+<section id="home" class="content active">
+  <div class="banner">
+    <h2>NEW VIDEO!</h2>
+    <h1><strong>LNIDH 3²</strong> countdown is live.</h1>
 
-  <footer>
-    <h3>Our YouTube Channels</h3>
-    <ul>
-      <li><a href="https://www.youtube.com/@lnidh" target="_blank">MAIN CHANNEL: LNIDH</a></li>
-      <li><a href="https://www.youtube.com/@lnidhv" target="_blank">VLOG CHANNEL: LNIDH V</a></li>
-      <li><a href="https://www.youtube.com/@lpidh" target="_blank">STREAMS: LPIDH</a></li>
-      <li><a href="https://www.youtube.com/@LNIDHCP_" target="_blank">CLIPS CHANNEL: LNIDHCP</a></li>
-      <li><a href="https://www.youtube.com/@ArisLNIDH" target="_blank">PERSONAL CHANNEL: aris's unammed channel</a></li>
-    </ul>
+    <div id="countdown">
+      <span id="days">00</span>d
+      <span id="hours">00</span>h
+      <span id="minutes">00</span>m
+      <span id="seconds">00</span>s
+    </div>
 
-    <h3>Contact Us</h3>
-    <p>Email: <a href="mailto:lnidhbusines@gmail.com">lnidhbusines@gmail.com</a></p>
-    <p>© 2025 LNIDH Studios.</p>
-  </footer>
+    <a href="https://www.youtube.com/@lnidh" target="_blank" class="interactive">YouTube</a>
+  </div>
 
-  <script src="script.js"></script>
+  <div class="intro">
+    <p>
+      LNIDH is a YouTube collective created by:
+      <b>Aris Michel</b> and
+      <b>Jacob Donut the Rock Merrel Johnson the 7th JR.</b>
+      with a group of 7 and sometimes more! bringing funny, entertaining, and unique new ideas to any platform that will accept us.
+    </p>
+    <p>
+      This website exists for announcements, behind-the-scenes content,
+      and everything LNIDH.
+    </p>
+  </div>
+</section>
+
+<!-- BTS -->
+<!--<section id="bts" class="content">-->
+<!--  <h2>Behind The Scenes</h2>-->
+
+<!--  <div class="bts-grid">-->
+
+    <!-- BTS VIDEO -->
+<!--    <div class="bts-card">-->
+<!--      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"-->
+<!--        allowfullscreen></iframe>-->
+<!--      <p><strong>Filming LNIDH 3²</strong><br>First shoot day chaos.</p>-->
+<!--    </div>-->
+
+    <!-- BTS PHOTO -->
+<!--    <div class="bts-card">-->
+<!--      <img src="images/bts1.jpg" alt="BTS photo">-->
+<!--      <p><strong>Set Setup</strong><br>Lighting + camera tests.</p>-->
+<!--    </div>-->
+
+    <!-- COPY / PASTE MORE -->
+<!--  </div>-->
+<!--</section>-->
+
+<!-- MERCH -->
+<section id="merch" class="content">
+  <h1>Merch</h1>
+  <h3>Latest drops</h3>
+
+  <iframe
+    style="border-radius:24px;border:none"
+    src="https://embed.creator-spring.com/widget?slug=lnidh&per=3&layout=grid-sm-4&theme=dark"
+    width="100%"
+    height="960">
+  </iframe>
+</section>
+
+<!-- CONTENT -->
+<section id="content" class="content">
+  <h2>Content & Platforms</h2>
+
+  <div class="platforms-grid">
+    <div class="platform-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNQOiyMRQIARarYMe-UgKt1hQpexSeKVT5lw&s" alt="YouTube" class="platform-icon">
+      <h3>Main YouTube Channel</h3>
+      <p><a href="https://www.youtube.com/@lnidh" target="_blank">LNIDH</a> – Main channel for skits, the LNIDH Film Series, and big projects.</p>
+    </div>
+
+    <div class="platform-card">
+      <img src="https://yt3.googleusercontent.com/ytc/AIdro_mMCFGLpx-oVhpUD-5nWuGkQGaSnhc77pZDhv7mEa7cxk6UAAgzralettYUi9Lid9Cr3w=s160-c-k-c0x00ffffff-no-rj" alt="YouTube" class="platform-icon">
+      <h3>Vlog Channel</h3>
+      <p><a href="https://www.youtube.com/@lnidhv" target="_blank">LNIDH V</a> – Behind the scenes on the films, Monthly vlogs, and adventures.</p>
+    </div>
+
+    <div class="platform-card">
+      <img src="https://yt3.googleusercontent.com/jlOO822JVArxfc5P8mlgaEe-FhA7x4QNWAcSWo2f0X-ujRaUhQGAA2cnSJ3mrXqj3Nf7d26XNg=s160-c-k-c0x00ffffff-no-rj" alt="YouTube" class="platform-icon">
+      <h3>Streams</h3>
+      <p><a href="https://www.youtube.com/@lpidh" target="_blank">LPIDH</a> – Live streams and gaming content.</p>
+    </div>
+
+    <div class="platform-card">
+      <img src="https://yt3.googleusercontent.com/KfeU2ymEL1JHQhQT4WCNYS-jsEwPbvqLb2-XEeHYTLt33ymFlBg8X5S54CH-ZfqkyMO42fFNjbQ=s160-c-k-c0x00ffffff-no-rj" alt="YouTube" class="platform-icon">
+      <h3>Clips Channel</h3>
+      <p><a href="https://www.youtube.com/@LNIDHCP_" target="_blank">LNIDHCP</a> – Clips and Podcast level conversations here.</p>
+    </div>
+
+    <div class="platform-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" class="platform-icon">
+      <h3>Instagram</h3>
+      <p>Follow us on Instagram for BTS photos, short skits that don't make it to our main videos, updates, and Announcements.</p>
+    </div>
+
+    <div class="platform-card">
+      <img src="https://sf-static.tiktokcdn.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png" alt="TikTok" class="platform-icon">
+      <h3>TikTok</h3>
+      <p>funny clips, trends, and short skits that don't make it to our main videos on our TikTok.</p>
+    </div>
+
+    <div class="platform-card">
+      <img src="https://m.media-amazon.com/images/I/51rttY7a+9L.png" alt="Spotify" class="platform-icon">
+      <h3>Spotify</h3>
+      <p>Music from our videos that we compose. Or Music from our Record Artists.</p>
+    </div>
+
+    <div class="platform-card">
+      <img src="https://dreamsvg.com/cdn/shop/files/Fishbrainrotpng_italianbrainrotpng_brainrotpng4.jpg?v=1756190935" alt="Twitch" class="platform-icon">
+      <h3>Tumblr</h3>
+      <p>Tumblr.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAST & CREW -->
+<section id="crew" class="content">
+  <h2>Cast & Crew</h2>
+
+  <div class="crew-grid">
+
+    <div class="crew-card">
+      <img src="aris.jpg" alt="Aris Michel">
+      <h3>Aris Michel</h3>
+      <p>Creator • Director • Producer • Editor • Writer • Actor • Composer • VFX supervisor</p>
+    </div>
+
+    <div class="crew-card">
+      <img src="jacb.jpg" alt="Jacob">
+      <h3>Jacob Donut</h3>
+      <p>Co-Creator • Actor • Artist • Camera Operator</p>
+    </div>
+
+    <div class="crew-card">
+      <img src="https://i1.sndcdn.com/artworks-zL5yKLDm12UvDdwS-iVJ9Jg-t240x240.jpg" alt="Member 3">
+      <h3>Benny (Little Nicky)</h3>
+      <p>Music Artist • Props • Actor • Visionary</p>
+    </div>
+
+    <div class="crew-card">
+      <img src="https://media.tenor.com/xNM1KxQRHrAAAAAe/agartha-flight-reacts.png" alt="Member 4">
+      <h3>Xavier</h3>
+      <p>Actor • Visionary</p>
+    </div>
+
+    <div class="crew-card">
+      <img src="yoshua.jpg" alt="Member 5">
+      <h3>Yoshua Shower</h3>
+      <p>Actor • Composer</p>
+    </div>
+
+    <div class="crew-card">
+      <img src="https://i9.ytimg.com/vi/jxsXKi-RIH0/mqdefault.jpg?v=65d18eab&sqp=CKz-jcsG&rs=AOn4CLAUgbOybvfbVNLzKnAjwjJWW1lwjQ" alt="Member 6">
+      <h3>Tyrone</h3>
+      <p>Actor • Tyrone</p>
+    </div>
+
+    <div class="crew-card">
+      <img src="https://i9.ytimg.com/vi/LO_4X_DIBCs/mqdefault.jpg?v=648451cf&sqp=CKz-jcsG&rs=AOn4CLCInPvu6Ijw-QpODk2Vj1J_ZGJRJA" alt="Member 7">
+      <h3>Gerardo Ali</h3>
+      <p>Actor • Composer</p>
+    </div>
+    
+    <div class="crew-card">
+      <img src="https://i.redd.it/8kqbplrcxmvf1.jpeg" alt="Member 7">
+      <h3>Angel Ball</h3>
+      <p>Actor</p>
+    </div>
+    
+    <div class="crew-card">
+      <img src="https://lumiere-a.akamaihd.net/v1/images/bluesteel_d0f846ee.jpeg" alt="Member 7">
+      <h3>Alex</h3>
+      <p>Actor • Camera Operator</p>
+    </div>
+  </div>
+
+  <!-- Record Label Artists -->
+  <h2>LNIDH Studios Label - Artists</h2>
+  <div class="crew-grid">
+      <div class="crew-card">
+      <img src="images/artist2.jpg" alt="Artist 2">
+      <h3>Jacob Donut The Rock Merrel Johnson the 7th JR</h3>
+      <p>Signed Artist • Music Creator • Comedy</p>
+    </div>
+
+    <div class="crew-card">
+      <img src="images/artist2.jpg" alt="Artist 2">
+      <h3>Little Nicky</h3>
+      <p>Signed Artist • Music Creator • Gospel/Rap/Charlie Kirk</p>
+    </div>
+    
+    <div class="crew-card">
+      <img src="https://cdn-images.dzcdn.net/images/cover/00645d4719d55d8213de6276e608274a/1900x1900-000000-80-0-0.jpg" alt="Artist 1">
+      <h3>Roman Rizo</h3>
+      <p>Signed Artist • Music Creator • Composer • Alternative Hip Hop</p>
+    </div>
+    
+    <div class="crew-card">
+      <img src="images/artist1.jpg" alt="Artist 1">
+      <h3>MCCP</h3>
+      <p>Signed Artist • Music Creator • Composer • Rap</p>
+    </div>
+
+    <!-- COPY / PASTE MORE AS NEEDED -->
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <h3>Our YouTube Channels</h3>
+  <ul>
+    <li><a href="https://www.youtube.com/@lnidh">MAIN CHANNEL: LNIDH</a></li>
+    <li><a href="https://www.youtube.com/@lnidhv">VLOG CHANNEL: LNIDH V</a></li>
+    <li><a href="https://www.youtube.com/@lpidh">STREAMS: LPIDH</a></li>
+    <li><a href="https://www.youtube.com/@LNIDHCP_">CLIPS: LNIDHCP</a></li>
+  </ul>
+
+  <p>Email: <a href="mailto:lnidhbusines@gmail.com">lnidhbusiness@gmail.com</a></p>
+  <p>© 2026 LNIDH Studios</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
