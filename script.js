@@ -1,18 +1,31 @@
-// Tab switching for single-page layout
+// Tabs
 const tabs = document.querySelectorAll('.tab');
 const sections = document.querySelectorAll('.content');
 
 tabs.forEach(tab => {
   tab.addEventListener('click', e => {
     e.preventDefault();
-
-    // Remove active class from all tabs and sections
     tabs.forEach(t => t.classList.remove('active'));
     sections.forEach(s => s.classList.remove('active'));
-
-    // Activate the clicked tab and its section
     tab.classList.add('active');
-    const target = tab.getAttribute('data-target');
-    document.getElementById(target).classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
   });
 });
+
+// Countdown
+const targetDate = new Date("January 17, 2026 00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  if (diff < 0) {
+    document.getElementById("countdown").innerHTML = "IT'S OUT!";
+    return;
+  }
+
+  document.getElementById("days").textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("hours").textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  document.getElementById("minutes").textContent = Math.floor((diff / (1000 * 60)) % 60);
+  document.getElementById("seconds").textContent = Math.floor((diff / 1000) % 60);
+}, 1000);
