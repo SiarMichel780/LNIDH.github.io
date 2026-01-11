@@ -155,8 +155,6 @@ section.active {
 
 /* ========================= */
 /* BTS */
-/* ========================= */
-
 .bts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
@@ -187,18 +185,23 @@ section.active {
 
 .platforms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 420px));
+  justify-content: center;
   gap: clamp(28px, 6vw, 56px);
   margin-top: clamp(32px, 6vw, 64px);
 }
 
 .platform-card {
   display: flex;
-  gap: clamp(20px, 4vw, 32px);
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2vw, 32px);
   background-color: var(--bg-dark);
   padding: clamp(28px, 6vw, 48px);
   border-radius: 32px;
-  text-align: left;
+  text-align: center;
+  min-height: 260px;
+  max-width: 420px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -208,42 +211,43 @@ section.active {
 }
 
 .platform-icon {
-  width: clamp(48px, 8vw, 72px);
-  height: clamp(48px, 8vw, 72px);
-  flex-shrink: 0;
-}
-
-.platform-card p {
-  margin: 0;
-  max-width: none;
+  width: clamp(48px, 12vw, 72px);
+  height: clamp(48px, 12vw, 72px);
 }
 
 /* ========================= */
-/* CREW */
+/* CREW GRID FIXED */
 /* ========================= */
 
 .crew-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: clamp(20px, 5vw, 36px);
+  justify-items: center;
 }
 
 .crew-card {
   background-color: var(--bg-dark);
-  padding: clamp(20px, 5vw, 28px);
+  padding: clamp(20px, 3vw, 28px);
   border-radius: 20px;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .crew-card img {
   width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border-radius: 14px;
   margin-bottom: 16px;
 }
 
 /* ========================= */
 /* FOOTER */
-/* ========================= */
-
 footer {
   background-color: var(--bg-dark);
   padding: clamp(24px, 5vw, 32px) 16px;
@@ -252,4 +256,31 @@ footer {
 
 footer li {
   margin: 8px 0;
+}
+
+/* ========================= */
+/* RESPONSIVE MOBILE FIXES */
+@media (max-width: 700px) {
+  .platforms-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .platform-card {
+    padding: 36px;
+    min-height: auto;
+  }
+
+  .platform-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .crew-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crew-card {
+    max-width: 90%;
+  }
 }
