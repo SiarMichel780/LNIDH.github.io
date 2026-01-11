@@ -191,60 +191,60 @@ footer li {
 }
 
 /* ========================= */
-/* CONTENT PAGE (HUGE / HERO-SIZED BOXES) */
+/* CONTENT PAGE (ACTUALLY BIG BOXES) */
 /* ========================= */
 
 #content {
-  max-width: 2000px; /* MASSIVE canvas */
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 /* GRID */
 .platforms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(680px, 1fr)); /* INSANELY wide */
-  gap: 80px;
-  margin-top: 96px;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  gap: 56px;
+  margin-top: 64px;
 }
 
 /* CARD */
 .platform-card {
   display: flex;
-  align-items: center;
-  gap: 48px;
+  align-items: flex-start;
+  gap: 32px;
 
   background-color: var(--bg-dark);
-  padding: 80px; /* HUGE padding */
-  border-radius: 44px;
+  padding: 48px;
+  border-radius: 32px;
 
-  min-height: 420px; /* VERY tall */
+  min-height: 260px;
   width: 100%;
   text-align: left;
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .platform-card:hover {
-  transform: translateY(-16px);
-  box-shadow: 0 48px 96px rgba(0, 0, 0, 0.6);
+  transform: translateY(-10px);
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.55);
 }
 
 /* ICON */
 .platform-icon {
-  width: 120px; /* MASSIVE icon */
-  height: 120px;
+  width: 72px;
+  height: 72px;
   flex-shrink: 0;
 }
 
-/* TEXT */
+/* TEXT (override global p rules) */
 .platform-card h3 {
-  font-size: 2.6rem; /* HUGE heading */
-  margin: 0 0 22px 0;
+  font-size: 1.8rem;
+  margin: 0 0 14px 0;
 }
 
 .platform-card p {
-  font-size: 1.6rem;
-  line-height: 1.9;
+  font-size: 1.3rem;
+  line-height: 1.75;
   margin: 0;
   max-width: none;
   color: var(--text-muted);
@@ -252,7 +252,7 @@ footer li {
 
 .platform-card a {
   color: var(--accent);
-  font-weight: 900;
+  font-weight: 800;
   text-decoration: none;
 }
 
@@ -260,23 +260,24 @@ footer li {
   text-decoration: underline;
 }
 
-/* MOBILE (still big, but sane) */
-@media (max-width: 900px) {
+/* MOBILE */
+@media (max-width: 700px) {
   .platforms-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 36px;
   }
 
   .platform-card {
-    padding: 48px;
+    padding: 36px;
     min-height: auto;
   }
 
   .platform-icon {
-    width: 80px;
-    height: 80px;
+    width: 56px;
+    height: 56px;
   }
 }
+
 
 h1{
     font-size: 108px;
