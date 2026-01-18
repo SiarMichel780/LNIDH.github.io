@@ -13,7 +13,7 @@ tabs.forEach(tab => {
 });
 
 // Countdown
-const targetDate = new Date("January 18, 2026 18:00:00").getTime();
+const targetDate = new Date("January 19, 2026 18:00:00").getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
@@ -29,3 +29,4 @@ setInterval(() => {
   document.getElementById("minutes").textContent = Math.floor((diff / (1000 * 60)) % 60);
   document.getElementById("seconds").textContent = Math.floor((diff / 1000) % 60);
 }, 1000);
+
