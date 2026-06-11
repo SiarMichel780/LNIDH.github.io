@@ -31,6 +31,8 @@ const INVITE_CODE = "SHITRUN";
 
 let savedUsername =
 localStorage.getItem("plotsUsername");
+console.log("Username:", savedUsername);
+console.log("Invite:", savedInvite);
 
 let savedInvite =
 localStorage.getItem("plotsInvite");
@@ -162,12 +164,23 @@ saveUserBtn.addEventListener(
         const username =
             usernameInput.value.trim();
 
-        if(!username) return;
+        if(!username){
+            alert("Enter a username");
+            return;
+        }
 
         localStorage.setItem(
             "plotsUsername",
             username
         );
+
+        loginScreen.style.display = "none";
+        mainScreen.style.display = "block";
+        welcomeText.textContent =
+            `Welcome ${username}`;
+
+    }
+);
 
         location.reload();
 
