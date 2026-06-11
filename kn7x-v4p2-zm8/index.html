@@ -1,35 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>LNIDH Plots</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<div id="mainScreen" style="display:none;">
 
-    <div id="app">
-        <h1>LNIDH Plots!</h1>
+    <h2 id="welcomeText"></h2>
 
-        <div id="loginScreen">
-            <input
-                id="usernameInput"
-                placeholder="Choose a username"
-            >
+    <hr>
 
-            <button id="saveUserBtn">
-                Continue
-            </button>
-        </div>
+    <h3>Create Event</h3>
 
-        <div id="mainScreen" style="display:none;">
-            <h2 id="welcomeText"></h2>
+    <input
+        id="eventTitle"
+        placeholder="Event Name"
+    >
 
-            <button onclick="testFirebase()">
-                Test Firebase
-            </button>
-        </div>
+    <br><br>
+
+    <input
+        id="eventLocation"
+        placeholder="Location"
+    >
+
+    <br><br>
+
+    <textarea
+        id="eventDescription"
+        placeholder="What are we doing?"
+    ></textarea>
+
+    <br><br>
+
+    <input
+        type="date"
+        id="eventDate"
+    >
+
+    <br><br>
+
+    <input
+        type="time"
+        id="eventTime"
+    >
+
+    <br><br>
+
+    <select id="eventGroup">
+
+        <option value="general">
+            General Hangouts
+        </option>
+
+        <option value="knotts">
+            Knott's Pass Holders
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button id="createEventBtn">
+        Create Event
+    </button>
+
+    <hr>
+
+    <h3>Upcoming Events</h3>
+
+    <div id="eventsContainer">
+
     </div>
 
-    <script type="module" src="app.js"></script>
-
-</body>
-</html>
+</div>
