@@ -31,11 +31,12 @@ const INVITE_CODE = "SHITRUN";
 
 let savedUsername =
 localStorage.getItem("plotsUsername");
-console.log("Username:", savedUsername);
-console.log("Invite:", savedInvite);
 
 let savedInvite =
 localStorage.getItem("plotsInvite");
+
+console.log("Username:", savedUsername);
+console.log("Invite:", savedInvite);
 
 function showInviteScreen() {
 
@@ -103,7 +104,8 @@ const snapshot =
 
 snapshot.forEach(doc=>{
 
-    const event = doc.data();
+    const event =
+        doc.data();
 
     const div =
         document.createElement("div");
@@ -157,7 +159,7 @@ if(savedUsername){
 
 }
 
-saveUserBtn.addEventListener(
+saveUserBtn?.addEventListener(
     "click",
     ()=>{
 
@@ -165,8 +167,13 @@ saveUserBtn.addEventListener(
             usernameInput.value.trim();
 
         if(!username){
-            alert("Enter a username");
+
+            alert(
+                "Enter a username"
+            );
+
             return;
+
         }
 
         localStorage.setItem(
@@ -174,15 +181,16 @@ saveUserBtn.addEventListener(
             username
         );
 
-        loginScreen.style.display = "none";
-        mainScreen.style.display = "block";
+        loginScreen.style.display =
+            "none";
+
+        mainScreen.style.display =
+            "block";
+
         welcomeText.textContent =
             `Welcome ${username}`;
 
-    }
-);
-
-        location.reload();
+        loadEvents();
 
     }
 );
@@ -253,7 +261,8 @@ async ()=>{
             time,
             group,
             creator,
-            created: Date.now()
+            created:
+                Date.now()
         }
     );
 
