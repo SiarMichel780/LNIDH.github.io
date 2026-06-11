@@ -1,3 +1,11 @@
+import { db } from "./firebase-config.js";
+
+import {
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+//test /\
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
@@ -17,3 +25,26 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export { db };
+
+// \/ test down
+window.testFirebase = async () => {
+
+  try {
+
+    await addDoc(
+      collection(db, "test"),
+      {
+        message: "LNIDH Plots Test",
+        created: Date.now()
+      }
+    );
+
+    alert("Firebase Connected!");
+
+  } catch (err) {
+
+    console.error(err);
+
+    alert("Firebase Failed");
+  }
+};
