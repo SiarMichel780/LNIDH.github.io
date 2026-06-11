@@ -118,9 +118,6 @@ if(savedInvite !== "true"){
 // \/ test down
 window.testFirebase = async () => {
 
-document.getElementById("testBtn")
-  ?.addEventListener("click", testFirebase);
-  
   try {
 
     await addDoc(
