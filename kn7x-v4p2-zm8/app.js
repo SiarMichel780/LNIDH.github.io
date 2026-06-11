@@ -151,7 +151,7 @@ if(savedUsername){
     welcomeText.textContent =
         `Welcome ${savedUsername}`;
 
-    loadEvents();
+    `// loadEvents();
 
 }
 
