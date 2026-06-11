@@ -1,20 +1,10 @@
-import {
-  collection,
-  addDoc,
-  getDocs,
-  query,
-  orderBy
-}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
 import { db } from "./firebase-config.js";
 
 import {
-  collection,
-  addDoc
+collection,
+addDoc,
+getDocs
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-//test /\
 
 const usernameInput =
 document.getElementById("usernameInput");
@@ -31,6 +21,12 @@ document.getElementById("mainScreen");
 const welcomeText =
 document.getElementById("welcomeText");
 
+const createEventBtn =
+document.getElementById("createEventBtn");
+
+const eventsContainer =
+document.getElementById("eventsContainer");
+
 const INVITE_CODE = "SHITRUN";
 
 let savedUsername =
@@ -41,72 +37,127 @@ localStorage.getItem("plotsInvite");
 
 function showInviteScreen() {
 
-    document.body.innerHTML = `
-        <div style="text-align:center;padding:50px;color:white;">
-            <h1>LNIDH Plots</h1>
+```
+document.body.innerHTML = `
+    <div style="text-align:center;padding:50px;color:white;">
+        <h1>LNIDH Plots</h1>
 
-            <p>Invite Code Required</p>
+        <p>Invite Code Required</p>
 
-            <input
-                id="inviteInput"
-                placeholder="Invite Code"
-            >
+        <input
+            id="inviteInput"
+            placeholder="Invite Code"
+        >
 
-            <br><br>
+        <br><br>
 
-            <button id="inviteBtn">
-                Enter
-            </button>
-        </div>
+        <button id="inviteBtn">
+            Enter
+        </button>
+    </div>
+`;
+
+document
+    .getElementById("inviteBtn")
+    .onclick = () => {
+
+        const code =
+            document
+            .getElementById("inviteInput")
+            .value
+            .trim();
+
+        if(code === INVITE_CODE){
+
+            localStorage.setItem(
+                "plotsInvite",
+                "true"
+            );
+
+            location.reload();
+
+        } else {
+
+            alert("Wrong code");
+
+        }
+
+    };
+```
+
+}
+
+async function loadEvents(){
+
+```
+if(!eventsContainer) return;
+
+eventsContainer.innerHTML = "";
+
+const snapshot =
+    await getDocs(
+        collection(db,"events")
+    );
+
+snapshot.forEach(doc=>{
+
+    const event = doc.data();
+
+    const div =
+        document.createElement("div");
+
+    div.innerHTML = `
+        <h3>${event.title}</h3>
+
+        <p>${event.description}</p>
+
+        <p>📍 ${event.location}</p>
+
+        <p>📅 ${event.date}</p>
+
+        <p>⏰ ${event.time}</p>
+
+        <p>👤 ${event.creator}</p>
+
+        <p>🏷️ ${event.group}</p>
+
+        <hr>
     `;
 
-    document
-        .getElementById("inviteBtn")
-        .onclick = () => {
+    eventsContainer.appendChild(div);
 
-            const code =
-                document
-                .getElementById("inviteInput")
-                .value
-                .trim();
-
-            if(code === INVITE_CODE){
-
-                localStorage.setItem(
-                    "plotsInvite",
-                    "true"
-                );
-
-                location.reload();
-
-            } else {
-
-                alert("Wrong code");
-
-            }
-
-        };
+});
+```
 
 }
 
 if(savedInvite !== "true"){
 
-    showInviteScreen();
+```
+showInviteScreen();
+```
 
 } else {
 
-    if(savedUsername){
+```
+if(savedUsername){
 
-        loginScreen.style.display = "none";
+    loginScreen.style.display =
+        "none";
 
-        mainScreen.style.display = "block";
+    mainScreen.style.display =
+        "block";
 
-        welcomeText.textContent =
-            `Welcome ${savedUsername}`;
+    welcomeText.textContent =
+        `Welcome ${savedUsername}`;
 
-    }
+    loadEvents();
 
-    saveUserBtn.addEventListener("click",()=>{
+}
+
+saveUserBtn.addEventListener(
+    "click",
+    ()=>{
 
         const username =
             usernameInput.value.trim();
@@ -120,29 +171,118 @@ if(savedInvite !== "true"){
 
         location.reload();
 
-    });
+    }
+);
+```
 
 }
 
-// \/ test down
-window.testFirebase = async () => {
+createEventBtn?.addEventListener(
+"click",
+async ()=>{
 
-  try {
+```
+    const title =
+        document
+        .getElementById("eventTitle")
+        .value
+        .trim();
+
+    const location =
+        document
+        .getElementById("eventLocation")
+        .value
+        .trim();
+
+    const description =
+        document
+        .getElementById("eventDescription")
+        .value
+        .trim();
+
+    const date =
+        document
+        .getElementById("eventDate")
+        .value;
+
+    const time =
+        document
+        .getElementById("eventTime")
+        .value;
+
+    const group =
+        document
+        .getElementById("eventGroup")
+        .value;
+
+    const creator =
+        localStorage.getItem(
+            "plotsUsername"
+        );
+
+    if(!title){
+
+        alert(
+            "Event name required"
+        );
+
+        return;
+
+    }
 
     await addDoc(
-      collection(db, "test"),
-      {
-        message: "LNIDH Plots Test",
-        created: Date.now()
-      }
+        collection(db,"events"),
+        {
+            title,
+            location,
+            description,
+            date,
+            time,
+            group,
+            creator,
+            created: Date.now()
+        }
     );
 
-    alert("Firebase Connected!");
+    alert(
+        "Event Created!"
+    );
 
-  } catch (err) {
+    loadEvents();
+
+}
+```
+
+);
+
+window.testFirebase = async () => {
+
+```
+try {
+
+    await addDoc(
+        collection(db,"test"),
+        {
+            message:
+                "LNIDH Plots Test",
+            created:
+                Date.now()
+        }
+    );
+
+    alert(
+        "Firebase Connected!"
+    );
+
+} catch(err) {
 
     console.error(err);
 
-    alert("Firebase Failed");
-  }
+    alert(
+        "Firebase Failed"
+    );
+
+}
+```
+
 };
