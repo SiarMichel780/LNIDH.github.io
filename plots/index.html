@@ -2,9 +2,34 @@
 <html>
 <head>
     <title>LNIDH Plots</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>LNIDH Plots</h1>
-    <p>The app is being built.</p>
+
+    <div id="app">
+        <h1>LNIDH Plots</h1>
+
+        <div id="loginScreen">
+            <input
+                id="usernameInput"
+                placeholder="Choose a username"
+            >
+
+            <button id="saveUserBtn">
+                Continue
+            </button>
+        </div>
+
+        <div id="mainScreen" style="display:none;">
+            <h2 id="welcomeText"></h2>
+
+            <p>
+                Firebase connection coming next...
+            </p>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+
 </body>
 </html>
