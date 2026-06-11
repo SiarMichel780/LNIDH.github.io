@@ -1,10 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>LNIDH Plots</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+```
+<h1>LNIDH Plots!</h1>
+
+<div id="loginScreen">
+
+    <input
+        id="usernameInput"
+        placeholder="Choose a username"
+    >
+
+    <button id="saveUserBtn">
+        Continue
+    </button>
+
+</div>
+
 <div id="mainScreen" style="display:none;">
 
     <h2 id="welcomeText"></h2>
 
+    <button onclick="testFirebase()">
+        Test Firebase
+    </button>
+
     <hr>
 
-    <h3>Create Event</h3>
+    <h2>Create Event</h2>
 
     <input
         id="eventTitle"
@@ -61,10 +92,16 @@
 
     <hr>
 
-    <h3>Upcoming Events</h3>
+    <h2>Upcoming Events</h2>
 
-    <div id="eventsContainer">
-
-    </div>
+    <div id="eventsContainer"></div>
 
 </div>
+```
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
