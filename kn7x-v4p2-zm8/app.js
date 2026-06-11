@@ -13,32 +13,95 @@ document.getElementById("mainScreen");
 const welcomeText =
 document.getElementById("welcomeText");
 
-const savedUsername =
+const INVITE_CODE = "SHITRUN";
+
+let savedUsername =
 localStorage.getItem("plotsUsername");
 
-if(savedUsername){
+let savedInvite =
+localStorage.getItem("plotsInvite");
 
-    loginScreen.style.display="none";
+function showInviteScreen() {
 
-    mainScreen.style.display="block";
+    document.body.innerHTML = `
+        <div style="text-align:center;padding:50px;color:white;">
+            <h1>LNIDH Plots</h1>
 
-    welcomeText.textContent =
-        `Welcome ${savedUsername}`;
+            <p>Invite Code Required</p>
+
+            <input
+                id="inviteInput"
+                placeholder="Invite Code"
+            >
+
+            <br><br>
+
+            <button id="inviteBtn">
+                Enter
+            </button>
+        </div>
+    `;
+
+    document
+        .getElementById("inviteBtn")
+        .onclick = () => {
+
+            const code =
+                document
+                .getElementById("inviteInput")
+                .value
+                .trim();
+
+            if(code === INVITE_CODE){
+
+                localStorage.setItem(
+                    "plotsInvite",
+                    "true"
+                );
+
+                location.reload();
+
+            } else {
+
+                alert("Wrong code");
+
+            }
+
+        };
 
 }
 
-saveUserBtn.addEventListener("click",()=>{
+if(savedInvite !== "true"){
 
-    const username =
-    usernameInput.value.trim();
+    showInviteScreen();
 
-    if(!username) return;
+} else {
 
-    localStorage.setItem(
-        "plotsUsername",
-        username
-    );
+    if(savedUsername){
 
-    location.reload();
+        loginScreen.style.display = "none";
 
-});
+        mainScreen.style.display = "block";
+
+        welcomeText.textContent =
+            `Welcome ${savedUsername}`;
+
+    }
+
+    saveUserBtn.addEventListener("click",()=>{
+
+        const username =
+            usernameInput.value.trim();
+
+        if(!username) return;
+
+        localStorage.setItem(
+            "plotsUsername",
+            username
+        );
+
+        location.reload();
+
+    });
+
+}
