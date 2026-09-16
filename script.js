@@ -9,27 +9,16 @@ tabs.forEach(tab => {
     sections.forEach(s => s.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById(tab.dataset.target).classList.add('active');
+
+    // Load the Merch iframe only the first time that tab is opened.
+    // This is the fix for the 20-30s load delay: the iframe used to
+    // sit in the page with a real src, so the browser fetched it on
+    // every page load even while the Merch tab was hidden.
+    if (tab.dataset.target === 'merch') {
+      const merchIframe = document.querySelector('.merch-iframe');
+      if (merchIframe && !merchIframe.src) {
+        merchIframe.src = merchIframe.dataset.src;
+      }
+    }
   });
 });
-
-// Countdown
-const targetDate = new Date("January 19, 2026 21:15:00").getTime();
-
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = targetDate - now;
-
-  if (diff < 0) {
-    document.getElementById("countdown").innerHTML = "IT'S OUT!";
-    return;
-  }
-
-  document.getElementById("days").textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
-  document.getElementById("hours").textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  document.getElementById("minutes").textContent = Math.floor((diff / (1000 * 60)) % 60);
-  document.getElementById("seconds").textContent = Math.floor((diff / 1000) % 60);
-}, 1000);
-
-
-
-
